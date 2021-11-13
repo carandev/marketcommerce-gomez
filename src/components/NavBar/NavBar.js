@@ -12,7 +12,7 @@ export default class NavBar extends Component {
 						<li><a href="">Crear tu cuenta</a></li>
 						<li><a href="">Ingresa</a></li>
 						<li><a href="">Mis compras</a></li>
-						<li><a href=""><CartWidget/></a></li>
+						<li><a href=""><CartWidget number="5"/></a></li>
 				</nav>
       </header>
 			</>
