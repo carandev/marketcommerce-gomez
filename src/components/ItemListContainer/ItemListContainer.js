@@ -1,14 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react';
 
-export default class ItemListContainer extends Component {
-  render() {
-    const styles = {
-      color: "#0d0630",
-      textAlign: "center"
-    }
-
-    return <h1 style={styles}>{this.props.greeting}</h1>
-
+const ItemListContainer = ({greeting}) => {
+  const styles = {
+    color: "#0d0630",
+    textAlign: "center"
   }
-}
+  return <h1 style={styles}>{greeting}</h1>
+};
+
+export default ItemListContainer;
 

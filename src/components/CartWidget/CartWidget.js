@@ -1,18 +1,20 @@
-import React, { Component } from 'react'
-import { Icon } from '@mui/material'
+import {Icon} from "@mui/material";
+import React from 'react';
 
-export default class CardWidget extends Component {
-  render() {
-    const styles = {
-      display: 'flex',
-      alignItems: 'center'
-    }
-    return (
-      <div style={styles}>
-        <Icon>shopping_cart</Icon>
-        <p>{this.props.number}</p>
-      </div>
-    )
+const CartWidget = ({ number }) => {
+
+  const styles = {
+    display: 'flex',
+    alignItems: 'center'
   }
-}
+  return (
+    <a href={"#"} style={styles}>
+      <Icon>shopping_cart</Icon>
+      <p>{number}</p>
+    </a>
+  );
+};
+
+export default CartWidget;
+
 
