@@ -1,17 +1,21 @@
 import React, {useState} from 'react';
 import './ItemCount.css'
 
-const ItemCount = () => {
-  let [number, setNumber] = useState(0)
+const ItemCount = ({stock, initial, onAdd}) => {
+  let [number, setNumber] = useState(initial)
+
   return (
     <div className={"counter_container"}>
       <p>Nombre del producto</p>
-      <form className={"counter_form"}>
-        <button onClick={() => setNumber(++number)}>+</button>
-        <p>{number}</p>
+
+      <div className={"counter_form"}>
         <button onClick={() => setNumber(--number)}>-</button>
-      </form>
-      <button>Agregar al carrito</button>
+        <input onChange={input => setNumber(input.target.value)} type="text" value={number}/>
+        <button onClick={() => setNumber(++number)}>+</button>
+      </div>
+
+      <button onClick={() => onAdd(number)} className={'addToCart'}>Agregar al carrito</button>
+      {stock < number ? <span className={'error'}>Solo hay {stock} productos</span>: <></>}
     </div>
   );
 };
