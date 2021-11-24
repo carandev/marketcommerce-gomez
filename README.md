@@ -11,3 +11,7 @@
 ## Add Item Count
 
 ![Screenshot React](./public/sc/ItemCount.png)
+
+## Add Item and Item list component
+
+![Screenshot React](./public/sc/item_itemlist.png)

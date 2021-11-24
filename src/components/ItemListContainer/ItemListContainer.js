@@ -1,25 +1,18 @@
-import React from 'react';
-import './ItemListContainer.css'
-import ItemCount from "../ItemCount/ItemCount";
+import React, {useEffect, useState} from 'react';
+import ItemList from "../ItemList/ItemList";
 
-const ItemListContainer = ({greeting}) => {
-  const styles = {
-    color: "#0d0630",
-    textAlign: "center"
-  }
+const ItemListContainer = () => {
+  let [items, setItems] = useState([])
 
-  let numberItem = 0
-  let stock = 20
-
-  const onAdd = number => {
-    stock >= number ? numberItem = number : numberItem = 0
-  }
+  useEffect(() => {
+    setTimeout(() => fetch('/items.json')
+        .then(res => res.json())
+        .then(res => setItems(res)),
+      2000)
+  }, [])
 
   return (
-    <main>
-      <h1 style={styles}>{greeting}</h1>
-      <ItemCount initial={1} stock={stock} onAdd={onAdd}/>
-    </main>
+    <ItemList items={items}/>
   )
 };
 
