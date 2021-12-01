@@ -1,12 +1,18 @@
 import React from 'react';
-import NavBar from "./components/NavBar/NavBar";
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Main from "./Main";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+
 
 const App = () => {
   return (
     <>
-      <NavBar/>
-      <ItemListContainer greeting={"Me está gustando React"}/>
+      <BrowserRouter>
+        <Routes>
+          <Route path={'/'} element={<Main/>}/>
+          <Route path={'/item/:id'} element={<ItemDetailContainer/>}/>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };
