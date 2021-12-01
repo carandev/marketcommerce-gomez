@@ -16,3 +16,16 @@
 .card img {
   height: 100px;
 }
+
+.button {
+  padding: 0.5rem 1rem;
+
+  background: #ffa;
+  border: #cedd4c 1px solid;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background: #cedd4c;
+  border: #ffa 1px solid;
+}
