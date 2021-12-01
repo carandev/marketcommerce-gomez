@@ -6,7 +6,7 @@ const Main = () => {
   return (
     <>
       <NavBar/>
-      <ItemListContainer greeting={"Me está gustando React"}/>
+      <ItemListContainer/>
 
     </>
   );

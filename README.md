@@ -15,3 +15,8 @@
 ## Add Item and Item list component
 
 ![Screenshot React](./public/sc/item_itemlist.png)
+
+## Add Item Detail
+
+![Screenshot React](./public/sc/addButtonItem.png)
+![Screenshot React](./public/sc/itemDetail.png)
