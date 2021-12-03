@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import ItemDetail from "../ItemDetail/ItemDetail";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 
 const ItemDetailContainer = () => {
 
-  let { id } = useParams()
+  let { itemId } = useParams()
 
   let [item, setItem] = useState({})
 
@@ -12,12 +12,15 @@ const ItemDetailContainer = () => {
     setTimeout(() => {
       fetch('/items.json')
         .then(res => res.json())
-        .then(res => res.forEach(itemIn => itemIn.id==id && setItem(itemIn)))
+        .then(res => res.forEach(itemIn => itemIn.id === parseInt(itemId) && setItem(itemIn)))
     }, 2000)
-  }, [])
+  }, [itemId])
 
   return (
     <>
+      <Link to={'/'}>
+        Atrás
+      </Link>
       <ItemDetail item={item}/>
     </>
   );

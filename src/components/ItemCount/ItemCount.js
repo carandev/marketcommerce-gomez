@@ -6,18 +6,19 @@ const ItemCount = ({stock, initial, onAdd}) => {
 
   return (
     <div className={"counter_container"}>
-      <p>Nombre del producto</p>
-
-      <div className={"counter_form"}>
+      <div className="counter_input">
         <button onClick={() => setNumber(--number)}>-</button>
         <input onChange={input => setNumber(input.target.value)} type="text" value={number}/>
         <button onClick={() => setNumber(++number)}>+</button>
       </div>
-
       <button onClick={() => onAdd(number)} className={'addToCart'}>Agregar al carrito</button>
       {stock < number ? <span className={'error'}>Solo hay {stock} productos</span>: <></>}
     </div>
   );
 };
+
+ItemCount.defaultProps = {
+  initial: 0
+}
 
 export default ItemCount;

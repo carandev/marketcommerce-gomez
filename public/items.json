@@ -1,16 +1,18 @@
 [
   {
     "id": 1,
-    "name": "Teclado Gamer",
-    "description": "Redragon Dragonborn K630 Qwerty Blue Inglés",
+    "name": "Teclado Gamer Redragon ",
+    "description": "Dragonborn K630 Qwerty Blue Inglés",
+    "category": "teclado",
     "price": "162.900",
     "img": "https://http2.mlstatic.com/D_NQ_NP_896250-MCO48171758036_112021-O.webp",
     "stock": 10
   },
   {
     "id": 2,
-    "name": "Mouse de juego",
-    "description": "Redragon Centrophorus2 M601-RGB black",
+    "name": "Mouse de juego Redragon ",
+    "description": "Centrophorus2 M601-RGB black",
+    "category": "mouse",
     "price": "64.900",
     "img": "https://http2.mlstatic.com/D_NQ_NP_705514-MLA46624313357_072021-O.webp",
     "stock": 20
@@ -19,17 +21,37 @@
     "id": 3,
     "name": "Apple Macbook Air",
     "description": "13 pulgadas, 2020, Chip M1, 256 GB de SSD, 8 GB de RAM - Gris espacial",
+    "category": "portatil",
     "price": "4.440.107",
     "img": "https://http2.mlstatic.com/D_NQ_NP_615831-MLA46898186424_072021-O.webp",
     "stock": 8
   },
   {
     "id": 4,
-    "name": "Xiaomi Redmi ",
-    "description": "9A Dual SIM 32 GB verde majestuoso 2 GB RAM",
+    "name": "Xiaomi Redmi 9A ",
+    "description": "Dual SIM 32 GB verde majestuoso 2 GB RAM",
+    "category": "celular",
     "price": "469.000",
     "img": "https://http2.mlstatic.com/D_NQ_NP_669518-MLA44156631635_112020-O.webp",
     "stock": 39
+  },
+  {
+    "id": 5,
+    "name": "Xiaomi Pocophone Poco X3 PRO",
+    "description": "Dual SIM 256 GB negro fantasma 8 GB RAM",
+    "category": "celular",
+    "price": "1.174.900",
+    "img": "https://http2.mlstatic.com/D_NQ_NP_792858-MLA48354116522_112021-O.webp",
+    "stock": 14
+  },
+  {
+    "id": 6,
+    "name": "Laptop Lenovo IdeaPad 14ADA05",
+    "description": "Platinum gray 14\", AMD Athlon Silver 3050U 8GB de RAM 256GB SSD, AMD Radeon RX Vega 2 1366x768px Windows 10 Home",
+    "category": "portatil",
+    "price": "1.448.900",
+    "img": "https://http2.mlstatic.com/D_NQ_NP_686934-MLA46389335878_062021-O.webp",
+    "stock": 23
   }
 
 ]
