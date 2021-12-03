@@ -1,5 +1,5 @@
-main {
+.item_list__main {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }

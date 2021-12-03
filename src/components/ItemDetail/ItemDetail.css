@@ -1,0 +1,11 @@
+.item_detail__main {
+  display: flex;
+  justify-content: center;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
