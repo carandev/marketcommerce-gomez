@@ -19,7 +19,7 @@ const ItemDetailContainer = () => {
   return (
     <>
       <Link to={'/'}>
-        Atrás
+        Volver al listado
       </Link>
       <ItemDetail item={item}/>
     </>

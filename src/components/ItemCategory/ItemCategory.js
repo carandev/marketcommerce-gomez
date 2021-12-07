@@ -1,13 +1,14 @@
 import React from 'react';
-import './ItemCategory.css'
+import styled from './itemCategory.module.css'
 import {NavLink} from "react-router-dom";
 
 const ItemCategory = () => {
-  const style = ({isActive}) => isActive ? 'category_active category_link' : 'category_link'
+  const style = ({isActive}) => isActive ? styled.category_active + ' ' + styled.category_link : 'category_link'
+
   return (
     <>
       <nav>
-        <ul className={'category_ul'}>
+        <ul className={styled.category_ul}>
           <li>
             <NavLink to={'/'} className={style}>
               Todos

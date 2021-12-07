@@ -1,9 +1,9 @@
 import Item from '../Item/Item'
-import './ItemList.css'
+import styled from './itemList.module.css'
 
 const ItemList = ({items}) => {
   return (
-    <main className={'item_list__main'}>
+    <main className={styled.item_list__main}>
       {items.map(item => (
          <Item key={item.id} item={item}/>
         )

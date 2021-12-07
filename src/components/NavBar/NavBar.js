@@ -1,11 +1,11 @@
 import React from 'react';
 import CartWidget from "../CartWidget/CartWidget";
-import './NavBar.css'
+import styled from './navBar.module.css'
 
 const NavBar = () => {
   return (
     <>
-      <header className="header">
+      <header className={styled.header}>
         <img src="/img/logo.png" alt={"Logotipo de Market Commerce"}/>
         <nav>
           <li><a href="sign-up.html">Crear tu cuenta</a></li>
