@@ -27,3 +27,6 @@
 ## Sync Count
 ![Sync Count](./public/sc/sync-count1.png)
 ![Sync Count](./public/sc/sync-count2.png)
+
+## Cart Container with Context
+![Cart Container](./public/sc/cartContainer.png)
