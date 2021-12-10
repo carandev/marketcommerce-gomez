@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from './itemCount.module.css'
 
-const ItemCount = ({stock, initial = 1, onAdd}) => {
+const ItemCount = ({item, stock, initial = 1, addItem}) => {
   let [number, setNumber] = useState(initial)
 
   const addNumber = () => {
@@ -36,7 +36,7 @@ const ItemCount = ({stock, initial = 1, onAdd}) => {
         </button>
       </div>
       <button
-        onClick={() => number <= stock ? onAdd(number) : null}
+        onClick={() => number <= stock ? addItem(item, number) : null}
         className={'addToCart'}
       >
         Agregar al carrito

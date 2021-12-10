@@ -23,3 +23,7 @@
 
 ## Add Routes and categories
 ![GIF React](./public/sc/marketcommerce.gif)
+
+## Sync Count
+![Sync Count](./public/sc/sync-count1.png)
+![Sync Count](./public/sc/sync-count2.png)

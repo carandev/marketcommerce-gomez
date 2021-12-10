@@ -1,18 +1,21 @@
 import {Icon} from "@mui/material";
-import React from 'react';
+import React, {useContext} from 'react';
+import {Link} from "react-router-dom";
+import {CartContext} from "../../context/CartContext";
 
+const CartWidget = () => {
 
-const CartWidget = ({ number }) => {
+  const {cartItems} = useContext(CartContext)
 
   const styles = {
     display: 'flex',
     alignItems: 'center'
   }
   return (
-    <a href={"shopping_cart.html"} style={styles}>
+    <Link to={"/cart"} style={styles}>
       <Icon>shopping_cart</Icon>
-      <p>{number}</p>
-    </a>
+      <p>{cartItems.length}</p>
+    </Link>
   );
 };
 

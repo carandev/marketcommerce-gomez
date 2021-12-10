@@ -4,9 +4,10 @@ import {Link} from "react-router-dom";
 import styled  from "./item.module.css";
 
 
-const Item = ({item}) => {
+const Item = ({item, cart}) => {
   return (
     <div className={styled.card}>
+      {cart && <span>Cantidad: {item.quantity}</span>}
       <h2>{item.name}</h2>
       <img src={item.img} alt={'test'} />
       <p>$ {item.price}</p>

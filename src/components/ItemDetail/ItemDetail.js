@@ -1,17 +1,13 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import styled from './itemDetail.module.css'
 import ItemCount from "../ItemCount/ItemCount";
 import {Link} from "react-router-dom";
+import {CartContext} from "../../context/CartContext";
 
 const ItemDetail = ({item}) => {
   let [addToCart, setAddToCart] = useState(1)
   let [showCount, setShowCount] = useState(true)
-
-  const onAdd = number => {
-    setAddToCart(number)
-    setShowCount(lastValue => !lastValue)
-  }
-
+  const {addItem} = useContext(CartContext)
 
   return (
     <main className={styled.item_detail__main}>
@@ -24,7 +20,7 @@ const ItemDetail = ({item}) => {
         <div>
           <h2>$ {item.price}</h2>
           {showCount ?
-            <ItemCount stock={item.stock} onAdd={onAdd}/>: <>
+            <ItemCount item={item} stock={item.stock} addItem={addItem}/>: <>
             <span>Añadidos {addToCart} producto(s) al carrito</span>
             <Link to="/cart">
             <button>terminar mi compra</button>
