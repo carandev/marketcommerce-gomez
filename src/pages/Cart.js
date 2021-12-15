@@ -45,12 +45,19 @@ const Cart = () => {
           ))}
         </div>
         <p>Total: {total}</p>
-        <button
-          onClick={clear}
-          className={styled.button}
-        >
-          Eliminar productos
-        </button>
+        <div className={styled.buttonsContainer}>
+          <button
+            onClick={clear}
+            className={styled.button}
+          >
+            Eliminar productos
+          </button>
+          <button
+            className={styled.button}
+          >
+            Terminar compra
+          </button>
+        </div>
       </div>
     </main>
   )

@@ -23,12 +23,13 @@ const ItemDetail = ({item}) => {
               setShowCount={setShowCount}
               number={number}
               setNumber={setNumber}
-            />: <>
+            />: <div className={styled.notCounter}>
             <span>Añadidos {number} producto(s) al carrito</span>
-            <Link to="/cart">
-            <button>terminar mi compra</button>
-            </Link>
-            </>
+            <Link
+              className={styled.button}
+              to="/cart"
+            >Terminar mi compra</Link>
+            </div>
           }
         </div>
       </div>

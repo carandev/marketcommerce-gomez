@@ -4,7 +4,6 @@
   align-items: center;
 
   padding: 1rem;
-  width: 50%;
   height: 80%;
 
   background: #223;
@@ -25,4 +24,24 @@
 
 .details h1, .details p {
   margin-bottom: 3rem;
+}
+.button {
+  padding: 0.5rem 1rem;
+
+  background: #8df;
+  border: #223 1px solid;
+  border-radius: 5px;
+  color: #223;
+}
+
+.button:hover {
+  background: #fff;
+  cursor: pointer;
+}
+
+.notCounter {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 1rem;
 }

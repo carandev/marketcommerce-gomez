@@ -28,6 +28,7 @@ const ItemCount = ({item, stock, setShowCount, ...props}) => {
     <div className={styled.counter_container}>
       <div className={styled.counter_input}>
         <button
+          className={styled.button}
           onClick={lessNumber}
         >
           -
@@ -38,6 +39,7 @@ const ItemCount = ({item, stock, setShowCount, ...props}) => {
           value={props.number}
         />
         <button
+          className={styled.button}
           onClick={addNumber}
         >
           +
@@ -51,7 +53,7 @@ const ItemCount = ({item, stock, setShowCount, ...props}) => {
           }
         }
         }
-        className={'addToCart'}
+        className={styled.buttonAddToCart}
       >
         Agregar al carrito
       </button>

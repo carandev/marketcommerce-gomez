@@ -30,3 +30,6 @@
 
 ## Cart Container with Context
 ![Cart Container](./public/sc/cartContainer.png)
+
+## Cart View
+![Cart View](./public/sc/cartView.png)
