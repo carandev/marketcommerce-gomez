@@ -1,11 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import PropTypes from "prop-types";
-
 import ItemList from "../ItemList/ItemList";
-import ItemCategory from "../ItemCategory/ItemCategory";
 import {useParams} from "react-router-dom";
 
-const ItemListContainer = (  ) => {
+const ItemListContainer = () => {
   let [items, setItems] = useState([])
   let { categoryId } = useParams()
 
@@ -25,19 +22,8 @@ const ItemListContainer = (  ) => {
   }, [categoryId])
 
   return (
-    <>
-      <ItemCategory/>
       <ItemList items={items}/>
-    </>
   )
 };
-
-ItemListContainer.propTypes = {
-  category: PropTypes.string
-}
-
-ItemListContainer.defaultProps = {
-  category: 'all'
-}
 
 export default ItemListContainer;

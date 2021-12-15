@@ -13,16 +13,27 @@ const CartProvider = ({children}) => {
   const clear = () => {
     setCartItems([])
   }
+
+  const onDelete = (id) => {
+    setCartItems(cartItems.filter(item => item.id !== id))
+  }
   
   const addItem = (item, quantity) => {
-    if (!isInCart(item.id)){
-     setCartItems([...cartItems, {...item, quantity}])
+    if (isInCart(item.id)) {
+      setCartItems(cartItems.map(cartItem => {
+        if (cartItem.id === item.id) {
+          cartItem.quantity = quantity
+        }
+        return cartItem
+      }))
+    } else {
+      setCartItems([...cartItems, {...item, quantity}])
     }
 
   }
 
   return (
-    <CartContext.Provider value={{cartItems, addItem, clear}}>
+    <CartContext.Provider value={{cartItems, addItem, clear, isInCart, onDelete}}>
     {children}
     </CartContext.Provider>
   )

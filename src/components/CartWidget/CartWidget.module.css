@@ -1,0 +1,22 @@
+.linkCart {
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.linkCart:hover, .linkCart svg:hover {
+  color: #8df;
+  fill: #8df;
+}
+
+.activeLink {
+  color: #8df;
+}
+
+.activeLink svg {
+  fill: #8df;
+}
+
+.linkCart p {
+  margin-left: .5rem;
+}

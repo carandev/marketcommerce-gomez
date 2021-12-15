@@ -5,23 +5,26 @@ import {Link} from "react-router-dom";
 import {CartContext} from "../../context/CartContext";
 
 const ItemDetail = ({item}) => {
-  let [addToCart, setAddToCart] = useState(1)
   let [showCount, setShowCount] = useState(true)
-  const {addItem} = useContext(CartContext)
+  let [number, setNumber] = useState(1)
 
   return (
-    <main className={styled.item_detail__main}>
+    <section className={styled.item_detail__main}>
       <img src={item.img} alt="Imagen del producto"/>
       <div className={styled.details}>
-        <div>
-          <h1>{item.name}</h1>
-          <p>{item.description}</p>
-        </div>
+        <h1>{item.name}</h1>
+        <p>{item.description}</p>
         <div>
           <h2>$ {item.price}</h2>
           {showCount ?
-            <ItemCount item={item} stock={item.stock} addItem={addItem}/>: <>
-            <span>Añadidos {addToCart} producto(s) al carrito</span>
+            <ItemCount
+              item={item}
+              stock={item.stock}
+              setShowCount={setShowCount}
+              number={number}
+              setNumber={setNumber}
+            />: <>
+            <span>Añadidos {number} producto(s) al carrito</span>
             <Link to="/cart">
             <button>terminar mi compra</button>
             </Link>
@@ -29,7 +32,7 @@ const ItemDetail = ({item}) => {
           }
         </div>
       </div>
-    </main>
+    </section>
   );
 };
 

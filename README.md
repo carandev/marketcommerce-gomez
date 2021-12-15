@@ -1,6 +1,6 @@
 # Ecommerce in React course | CoderHouse
 
-## Add NavBar
+## Add Header
 
 ![Screenshot React](./public/sc/navbar.png)
 
@@ -21,7 +21,7 @@
 ![Screenshot React](./public/sc/addButtonItem.png)
 ![Screenshot React](./public/sc/itemDetail.png)
 
-## Add Routes and categories
+## Add Router and categories
 ![GIF React](./public/sc/marketcommerce.gif)
 
 ## Sync Count

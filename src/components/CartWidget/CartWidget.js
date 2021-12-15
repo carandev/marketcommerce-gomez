@@ -1,21 +1,33 @@
-import {Icon} from "@mui/material";
-import React, {useContext} from 'react';
-import {Link} from "react-router-dom";
+import React, {useContext, useEffect, useState} from 'react';
+import {NavLink} from "react-router-dom";
 import {CartContext} from "../../context/CartContext";
+import {FaShoppingCart} from "react-icons/all";
+import styled from "./CartWidget.module.css";
 
 const CartWidget = () => {
 
   const {cartItems} = useContext(CartContext)
+  const [numberItems, setNumberItems] = useState(0)
 
-  const styles = {
-    display: 'flex',
-    alignItems: 'center'
-  }
+  useEffect(() => {
+    let numberTemporal = 0
+    cartItems.forEach(item => {
+      numberTemporal += item.quantity
+    })
+    setNumberItems(numberTemporal)
+  }, [cartItems])
+
+  const linkActive = ({isActive}) => (
+    isActive ? `${styled.linkCart} ${styled.activeLink}` : styled.linkCart
+  )
+
   return (
-    <Link to={"/cart"} style={styles}>
-      <Icon>shopping_cart</Icon>
-      <p>{cartItems.length}</p>
-    </Link>
+    <NavLink to={"/cart"} className={linkActive}>
+      {numberItems > 0 && <>
+        <FaShoppingCart color="#fff" size={25}/>
+        <p>{numberItems}</p></>
+      }
+    </NavLink>
   );
 };
 

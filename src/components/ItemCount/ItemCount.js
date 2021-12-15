@@ -1,18 +1,26 @@
-import React, {useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import styled from './itemCount.module.css'
+import {CartContext} from "../../context/CartContext";
 
-const ItemCount = ({item, stock, initial = 1, addItem}) => {
-  let [number, setNumber] = useState(initial)
+const ItemCount = ({item, stock, setShowCount, ...props}) => {
+
+  const { cartItems, addItem } = useContext(CartContext)
+
+  useEffect(() => {
+    const temporalItem = cartItems.find(itemCart => itemCart.id === item.id)
+    props.setNumber(temporalItem ? parseInt(temporalItem.quantity) : 1)
+  }, [item])
+
 
   const addNumber = () => {
-    if (number < stock) {
-      setNumber(lastValue => lastValue + 1)
+    if (props.number < stock) {
+      props.setNumber(lastValue => lastValue + 1)
     }
   }
 
   const lessNumber = () => {
-    if (number > 1) {
-      setNumber(lastValue => lastValue - 1)
+    if (props.number > 1) {
+      props.setNumber(lastValue => lastValue - 1)
     }
   }
 
@@ -25,9 +33,9 @@ const ItemCount = ({item, stock, initial = 1, addItem}) => {
           -
         </button>
         <input
-          onChange={input => setNumber(input.target.value)}
+          onChange={input => props.setNumber(input.target.value)}
           type="text"
-          value={number}
+          value={props.number}
         />
         <button
           onClick={addNumber}
@@ -36,12 +44,18 @@ const ItemCount = ({item, stock, initial = 1, addItem}) => {
         </button>
       </div>
       <button
-        onClick={() => number <= stock ? addItem(item, number) : null}
+        onClick={() => {
+          if (props.number <= stock) {
+            addItem(item, props.number)
+            setShowCount(false)
+          }
+        }
+        }
         className={'addToCart'}
       >
         Agregar al carrito
       </button>
-      {stock < number ? <span className={'error'}>Solo hay {stock} productos</span>: <></>}
+      {stock < props.number ? <span className={'error'}>Solo hay {stock} productos</span>: <></>}
     </div>
   );
 };

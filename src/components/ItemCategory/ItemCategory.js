@@ -1,42 +1,56 @@
 import React from 'react';
-import styled from './itemCategory.module.css'
 import {NavLink} from "react-router-dom";
+import styled from "./ItemCategoryStyle.module.css";
 
 const ItemCategory = () => {
-  const style = ({isActive}) => isActive ? styled.category_active + ' ' + styled.category_link : 'category_link'
+
+  const linkActive = ({ isActive }) => (
+    isActive ? `${styled.activeLink} ${styled.link}` : styled.link
+  )
 
   return (
-    <>
-      <nav>
-        <ul className={styled.category_ul}>
+      <nav className={styled.nav}>
           <li>
-            <NavLink to={'/'} className={style}>
+            <NavLink
+              to={'/'}
+              className={linkActive}
+            >
               Todos
             </NavLink>
           </li>
           <li>
-            <NavLink to={'/category/portatil'} className={style}>
+            <NavLink
+              to={'/category/portatil'}
+              className={linkActive}
+            >
               Portatil
             </NavLink>
           </li>
           <li>
-            <NavLink to={'/category/celular'} className={style}>
+            <NavLink
+              to={'/category/celular'}
+              className={linkActive}
+            >
               Celular
             </NavLink>
           </li>
           <li>
-            <NavLink to={'/category/teclado'} className={style}>
+            <NavLink
+              to={'/category/teclado'}
+              className={linkActive}
+            >
               Teclado
             </NavLink>
           </li>
           <li>
-            <NavLink to={'/category/mouse'} className={style}>
+            <NavLink
+              to={'/category/mouse'}
+              className={linkActive}
+            >
               Mouse
             </NavLink>
           </li>
-        </ul>
       </nav>
-    </>
   );
 };
 

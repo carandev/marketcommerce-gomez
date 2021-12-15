@@ -1,11 +1,28 @@
 .item_detail__main {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+
+  padding: 1rem;
+  width: 50%;
+  height: 80%;
+
+  background: #223;
+  color: #fff;
 }
 
 .details {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  margin: 1rem;
+
   text-align: center;
+}
+
+.details h1, .details p {
+  margin-bottom: 3rem;
 }

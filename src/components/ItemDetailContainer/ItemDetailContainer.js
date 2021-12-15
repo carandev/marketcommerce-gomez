@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import ItemDetail from "../ItemDetail/ItemDetail";
 import {Link, useParams} from "react-router-dom";
+import styled from "./ItemDetailContainer.module.css";
+
+
 
 const ItemDetailContainer = () => {
 
@@ -17,12 +20,12 @@ const ItemDetailContainer = () => {
   }, [itemId])
 
   return (
-    <>
+    <main className={styled.main}>
       <Link to={'/'}>
         Volver al listado
       </Link>
       <ItemDetail item={item}/>
-    </>
+    </main>
   );
 };
 
