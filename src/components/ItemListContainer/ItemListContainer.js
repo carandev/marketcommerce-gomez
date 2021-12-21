@@ -1,28 +1,31 @@
 import React, {useEffect, useState} from 'react';
 import ItemList from "../ItemList/ItemList";
 import {useParams} from "react-router-dom";
+import {collection, getDocs} from "firebase/firestore"
+import db from "../../firebase/firebaseConfig"
 
 const ItemListContainer = () => {
   let [items, setItems] = useState([])
-  let { categoryId } = useParams()
+  let {categoryId} = useParams()
+
+  const getProducts = async () => {
+    const products = await getDocs(collection(db, 'products'))
+    setItems([])
+    if (categoryId === undefined) {
+      products.forEach(product => setItems(lastItems => [...lastItems, product.data()]))
+    } else {
+      let temporalItems = []
+      products.forEach(item => item.data().category === categoryId && temporalItems.push(item.data()))
+      setItems(temporalItems)
+    }
+  }
 
   useEffect(() => {
-    setTimeout(() => fetch('/items.json')
-        .then(res => res.json())
-        .then(res => {
-          if (categoryId === undefined){
-            setItems(res)
-          }else {
-            let temporalItems = []
-            res.forEach(item => item.category === categoryId && temporalItems.push(item))
-            setItems(temporalItems)
-          }
-        }),
-      2000)
+    getProducts()
   }, [categoryId])
 
   return (
-      <ItemList items={items}/>
+    <ItemList items={items}/>
   )
 };
 
