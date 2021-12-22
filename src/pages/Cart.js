@@ -4,10 +4,12 @@ import styled from "./Cart.module.css";
 import Item from "../components/Item/Item";
 import {FaSadCry} from "react-icons/all";
 import {Link} from "react-router-dom";
+import FormBuy from "../components/FormBuy/FormBuy";
 
 const Cart = () => {
   const {cartItems, clear} = useContext(CartContext)
   const [total, setTotal] = useState(0)
+  const [finishBuy, setFinishBuy] = useState(false)
 
   useEffect(() => {
     let totalTemporal = 0
@@ -16,6 +18,12 @@ const Cart = () => {
     })
     setTotal(totalTemporal)
   }, [cartItems])
+
+  const handleSubmit = event => {
+    event.preventDefault()
+
+    setFinishBuy(true)
+  }
 
   return (
     <main className={styled.main}>
@@ -38,26 +46,34 @@ const Cart = () => {
           </div>
       }
       <div className={styled.dataContainer}>
-        <div className={styled.price}>
-          {cartItems.map(item => (
-            <span key={item.id}>
-              <span>{item.name} x{item.quantity}</span> <span>${item.price}</span></span>
-          ))}
-        </div>
-        <p>Total: {total}</p>
-        <div className={styled.buttonsContainer}>
-          <button
-            onClick={clear}
-            className={styled.button}
-          >
-            Eliminar productos
-          </button>
-          <button
-            className={styled.button}
-          >
-            Terminar compra
-          </button>
-        </div>
+        {
+          finishBuy ?
+            <FormBuy total={total}/>
+            :
+            <>
+                <div className={styled.price}>
+                  {cartItems.map(item => (
+                    <span key={item.id}>
+                  <span>{item.name} x{item.quantity}</span> <span>${item.price}</span></span>
+                  ))}
+                </div>
+                <p>Total: {total}</p>
+                <div className={styled.buttonsContainer}>
+                  <button
+                    onClick={clear}
+                    className={styled.button}
+                  >
+                    Eliminar productos
+                  </button>
+                  <button
+                    className={styled.button}
+                    onClick={handleSubmit}
+                  >
+                    Terminar compra
+                  </button>
+                </div>
+              </>
+        }
       </div>
     </main>
   )
