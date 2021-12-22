@@ -12,7 +12,7 @@ const FormBuy = ({ total }) => {
     email: ''
   })
 
-  const { cartItems } = useContext(CartContext)
+  const { cartItems, setCartItems } = useContext(CartContext)
 
   const [buyData, setBuyData] = useState({
     'buyer': buyerData,
@@ -30,6 +30,8 @@ const FormBuy = ({ total }) => {
 
     setOrderId(id)
     setShowId(true)
+
+    setCartItems([])
 
   }
 

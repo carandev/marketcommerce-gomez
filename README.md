@@ -33,3 +33,8 @@
 
 ## Cart View
 ![Cart View](./public/sc/cartView.png)
+
+## Order
+![Order View](./public/sc/order2.png)
+![Order View](./public/sc/order1.png)
+![Order View](./public/sc/orderFirebase.png)
