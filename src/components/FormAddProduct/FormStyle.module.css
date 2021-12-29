@@ -1,0 +1,51 @@
+.form {
+  display: flex;
+  flex-direction: column;
+
+  padding: 2rem;
+
+  font-size: 1.4rem;
+
+  background: #223;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.h1 {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.input {
+  margin-left: 1rem;
+  padding: .5rem;
+  width: 300px;
+
+  font-size: 1rem;
+
+  border: 1px #8df solid;
+  border-radius: 5px;
+  outline: none;
+  background: transparent;
+  color: #fff;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+
+  background: #8df;
+  border: #223 1px solid;
+  border-radius: 5px;
+  color: #223;
+}
+
+.button:hover {
+  background: #fff;
+  cursor: pointer;
+}

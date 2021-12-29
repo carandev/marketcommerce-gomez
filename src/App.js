@@ -1,8 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import CartProvider from "./context/CartContext"
+import Router from "./routes/Router";
 
-function App() {
+const App = () => {
   return (
+<<<<<<< HEAD
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -19,7 +21,16 @@ function App() {
         </a>
       </header>
     </div>
+=======
+    <>
+      <CartProvider>
+        <Router />
+      </CartProvider>
+    </>
+>>>>>>> order
   );
-}
+};
 
 export default App;
+
+

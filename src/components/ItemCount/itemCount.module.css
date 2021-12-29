@@ -1,0 +1,67 @@
+.counter_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 300px;
+}
+
+.counter_input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  font-size: 1rem;
+}
+
+.counter_input p {
+  margin: 0;
+  width: 100%;
+
+  font-size: 1.5rem;
+
+  background: #8df;
+  color: #223;
+}
+
+/* .counter_input input {
+  padding: 2px;
+
+  font-size: 1rem;
+  text-align: center;
+
+  border: none;
+  outline: none;
+  background: #8df;
+  color: #233;
+} */
+
+.button {
+  padding: 0.5rem 1rem;
+
+  background: #8df;
+  border: #223 1px solid;
+  border-radius: 5px;
+  color: #223;
+}
+
+.buttonAddToCart {
+  padding: 0.5rem 1rem;
+
+  background: #223;
+  border: #8df 1px solid;
+  border-radius: 5px;
+  color: #8df;
+}
+
+.buttonAddToCart:hover {
+  background: #8df;
+  color: #223;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #fff;
+  cursor: pointer;
+}
