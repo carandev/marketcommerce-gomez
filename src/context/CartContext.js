@@ -7,7 +7,7 @@ const CartProvider = ({children}) => {
   const [cartItems, setCartItems] = useState([])
 
   const isInCart = (id) => {
-    return cartItems.find(item => item.id === id)
+    return cartItems.find(item => item[1] === id)
   }
 
   const clear = () => {
@@ -18,16 +18,16 @@ const CartProvider = ({children}) => {
     setCartItems(cartItems.filter(item => item.id !== id))
   }
   
-  const addItem = (item, quantity) => {
-    if (isInCart(item.id)) {
+  const addItem = (item, quantity, id) => {
+    if (isInCart(id)) {
       setCartItems(cartItems.map(cartItem => {
-        if (cartItem.id === item.id) {
-          cartItem.quantity = quantity
+        if (cartItem[1] === id) {
+          cartItem[0].quantity = quantity
         }
         return cartItem
       }))
     } else {
-      setCartItems([...cartItems, {...item, quantity}])
+      setCartItems([...cartItems, [{...item, quantity}, id]])
     }
 
   }

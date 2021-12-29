@@ -16,7 +16,7 @@ const FormBuy = ({ total }) => {
 
   const [buyData, setBuyData] = useState({
     'buyer': buyerData,
-    'products': cartItems,
+    'products': cartItems[0],
     total
   })
 

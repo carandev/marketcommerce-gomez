@@ -12,10 +12,10 @@ const ItemListContainer = () => {
     const products = await getDocs(collection(db, 'products'))
     setItems([])
     if (categoryId === undefined) {
-      products.forEach(product => setItems(lastItems => [...lastItems, product.data()]))
+      products.forEach(product => setItems(lastItems => [...lastItems, [product.data(), product.id]]))
     } else {
       let temporalItems = []
-      products.forEach(item => item.data().category === categoryId && temporalItems.push(item.data()))
+      products.forEach(item => item.data().category === categoryId && temporalItems.push([item.data(), item.id]))
       setItems(temporalItems)
     }
   }

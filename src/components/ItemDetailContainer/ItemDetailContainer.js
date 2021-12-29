@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import ItemDetail from "../ItemDetail/ItemDetail";
 import {useParams} from "react-router-dom";
 import styled from "./ItemDetailContainer.module.css";
-import {collection, query, getDocs, where} from "firebase/firestore";
+import {doc, getDoc} from "firebase/firestore";
 import db from "../../firebase/firebaseConfig";
 
 
@@ -12,10 +12,12 @@ const ItemDetailContainer = () => {
   let [item, setItem] = useState({})
 
   const getItem = async () => {
-    const q = query(collection(db, "products"), where("id", "==", parseInt(itemId)));
+    const docRef = doc(db, "products", itemId);
+    const docSnap = await getDoc(docRef);
+    /* const q = query(collection(db, "products"), where("id", "==", parseInt(itemId)));
 
-    const querySnapshot = await getDocs(q);
-    setItem(querySnapshot.docs[0].data())
+    const querySnapshot = await getDocs(q); */
+    setItem(docSnap.data())
   }
 
   useEffect(() => {
@@ -24,7 +26,7 @@ const ItemDetailContainer = () => {
 
   return (
     <main className={styled.main}>
-      <ItemDetail item={item}/>
+      <ItemDetail item={item} id={itemId}/>
     </main>
   );
 };

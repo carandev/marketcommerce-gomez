@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect} from 'react';
 import styled from './itemCount.module.css'
 import {CartContext} from "../../context/CartContext";
 
@@ -7,8 +7,8 @@ const ItemCount = ({item, stock, setShowCount, ...props}) => {
   const { cartItems, addItem } = useContext(CartContext)
 
   useEffect(() => {
-    const temporalItem = cartItems.find(itemCart => itemCart.id === item.id)
-    props.setNumber(temporalItem ? parseInt(temporalItem.quantity) : 1)
+    const temporalItem = cartItems.find(itemCart => itemCart[1] === props.id)
+    props.setNumber(temporalItem ? parseInt(temporalItem[0].quantity) : 1)
   }, [item])
 
 
@@ -33,11 +33,7 @@ const ItemCount = ({item, stock, setShowCount, ...props}) => {
         >
           -
         </button>
-        <input
-          onChange={input => props.setNumber(input.target.value)}
-          type="text"
-          value={props.number}
-        />
+        <p>{props.number}</p>
         <button
           className={styled.button}
           onClick={addNumber}
@@ -48,7 +44,7 @@ const ItemCount = ({item, stock, setShowCount, ...props}) => {
       <button
         onClick={() => {
           if (props.number <= stock) {
-            addItem(item, props.number)
+            addItem(item, props.number, props.id)
             setShowCount(false)
           }
         }

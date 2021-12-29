@@ -1,12 +1,13 @@
-import React, {useContext} from 'react';
-import {Link} from "react-router-dom";
+import React, {useContext} from 'react'
+import {Link} from "react-router-dom"
 
-import styled  from "./item.module.css";
-import {FaTrash} from "react-icons/all";
-import {CartContext} from "../../context/CartContext";
+import styled  from "./item.module.css"
+import {FaTrash} from "react-icons/all"
+import {CartContext} from "../../context/CartContext"
+import formatNumberToCurrency from "../../changeCurrency"
 
 
-const Item = ({item, cart}) => {
+const Item = ({item, cart, id}) => {
 
   const { onDelete } = useContext(CartContext)
 
@@ -16,7 +17,7 @@ const Item = ({item, cart}) => {
         <span>Cantidad: {item.quantity}</span>
         <button
           className={styled.button}
-          onClick={() => onDelete(item.id)}
+          onClick={() => onDelete(id)}
         >
           <FaTrash color="#223" size={15}/>
         </button>
@@ -24,11 +25,11 @@ const Item = ({item, cart}) => {
       }
       <h2>{item.name}</h2>
       <img src={item.img} alt={'test'} />
-      <p>$ {item.price}</p>
-      <Link to={`/item/${item.id}`} className={styled.button}>Ver producto</Link>
+      <p>$ {formatNumberToCurrency(item.price)}</p>
+      <Link to={`/item/${id}`} className={styled.button}>Ver producto</Link>
       <p>Stock disponible: {item.stock}</p>
     </div>
-  );
-};
+  )
+}
 
 export default Item;

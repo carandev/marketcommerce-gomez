@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import styled from './itemDetail.module.css'
 import ItemCount from "../ItemCount/ItemCount";
 import {Link} from "react-router-dom";
+import formatNumberToCurrency from "../../changeCurrency"
 
-const ItemDetail = ({item}) => {
+const ItemDetail = ({item, id}) => {
   let [showCount, setShowCount] = useState(true)
   let [number, setNumber] = useState(1)
 
@@ -14,10 +15,11 @@ const ItemDetail = ({item}) => {
         <h1>{item.name}</h1>
         <p>{item.description}</p>
         <div>
-          <h2>$ {item.price}</h2>
+          <h2>{formatNumberToCurrency(item.price)}</h2>
           {showCount ?
             <ItemCount
               item={item}
+              id={id}
               stock={item.stock}
               setShowCount={setShowCount}
               number={number}

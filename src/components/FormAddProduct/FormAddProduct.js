@@ -6,7 +6,6 @@ import styled from "./FormStyle.module.css"
 const FormAddProduct = () => {
 
   const [products, setProducts] = useState({
-    id: 0,
     name: '',
     price: 0,
     description: '',
@@ -16,8 +15,6 @@ const FormAddProduct = () => {
   })
 
   const addProducts = async () => {
-    setProducts(lastValue => ({...lastValue, id: Date.now()}))
-
     const docRef = await addDoc(collection(db, "products"), products);
   }
 

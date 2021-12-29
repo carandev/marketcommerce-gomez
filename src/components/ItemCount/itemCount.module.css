@@ -2,9 +2,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  width: 300px;
 }
 
-.counter_input input {
+.counter_input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  font-size: 1rem;
+}
+
+.counter_input p {
+  margin: 0;
+  width: 100%;
+
+  font-size: 1.5rem;
+
+  background: #8df;
+  color: #223;
+}
+
+/* .counter_input input {
   padding: 2px;
 
   font-size: 1rem;
@@ -14,7 +35,7 @@
   outline: none;
   background: #8df;
   color: #233;
-}
+} */
 
 .button {
   padding: 0.5rem 1rem;

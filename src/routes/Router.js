@@ -5,6 +5,7 @@ import Cart from "../pages/Cart";
 import AddProduct from "../pages/AddProduct";
 import ItemDetailContainer from "../components/ItemDetailContainer/ItemDetailContainer";
 import Header from "../components/Header/Header";
+import NotFound from "../pages/NotFound"
 
 const Router = () => {
   return (
@@ -16,6 +17,7 @@ const Router = () => {
        <Route path={'/add_product'} element={<AddProduct/>}/>
        <Route path={'/category/:categoryId'} element={<Home/>}/>
        <Route path={'/item/:itemId'} element={<ItemDetailContainer/>}/>
+       <Route path={'*'} element={<NotFound/>}/>
      </Routes>
     </BrowserRouter>
   );

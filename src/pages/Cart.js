@@ -5,6 +5,7 @@ import Item from "../components/Item/Item";
 import {FaSadCry} from "react-icons/all";
 import {Link} from "react-router-dom";
 import FormBuy from "../components/FormBuy/FormBuy";
+import formatNumberToCurrency from "../changeCurrency"
 
 const Cart = () => {
   const {cartItems, clear} = useContext(CartContext)
@@ -13,10 +14,12 @@ const Cart = () => {
 
   useEffect(() => {
     let totalTemporal = 0
-    cartItems.forEach(item => {
+    cartItems.forEach(([item, id]) => {
       totalTemporal += item.price * item.quantity
     })
-    setTotal(totalTemporal)
+
+    setTotal(formatNumberToCurrency(totalTemporal))
+
   }, [cartItems])
 
   const handleSubmit = event => {
@@ -31,7 +34,7 @@ const Cart = () => {
         cartItems.length > 0 ?
           <ul className={styled.cartContainer}>
             {cartItems.map(item => (
-              <Item key={item.id} item={item} cart/>
+              <Item key={item[1]} item={item[0]} id={item[1]} cart/>
             ))}
           </ul>
           :
@@ -52,12 +55,14 @@ const Cart = () => {
             :
             <>
                 <div className={styled.price}>
-                  {cartItems.map(item => (
-                    <span key={item.id}>
+                  {cartItems.map(([item, id]) => (
+                    <span key={id}>
                   <span>{item.name} x{item.quantity}</span> <span>${item.price}</span></span>
                   ))}
                 </div>
-                <p>Total: {total}</p>
+                <p>
+                Total: {total}
+                </p>
                 <div className={styled.buttonsContainer}>
                   <button
                     onClick={clear}
