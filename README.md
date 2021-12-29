@@ -1,8 +1,5 @@
 # Ecommerce in React course | CoderHouse
 
-<<<<<<< HEAD
-![Screenshot React](./screenshot.png)
-=======
 ## Add Header
 
 ![Screenshot React](./public/sc/navbar.png)
@@ -41,4 +38,3 @@
 ![Order View](./public/sc/order2.png)
 ![Order View](./public/sc/order1.png)
 ![Order View](./public/sc/orderFirebase.png)
->>>>>>> order
