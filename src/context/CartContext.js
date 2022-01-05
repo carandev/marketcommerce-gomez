@@ -15,7 +15,7 @@ const CartProvider = ({children}) => {
   }
 
   const onDelete = (id) => {
-    setCartItems(cartItems.filter(item => item.id !== id))
+    setCartItems(cartItems.filter(item => item[1] !== id))
   }
   
   const addItem = (item, quantity, id) => {
