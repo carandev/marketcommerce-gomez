@@ -20,19 +20,25 @@ const FormBuy = ({ total }) => {
     total
   })
 
+  const [emailRepeat, setEmailRepeat] = useState('')
+
   const [orderId, setOrderId] = useState()
   const [showId, setShowId] = useState(false)
+  const [showErrorEmail, setShowErrorEmail] = useState(false)
 
   const handleSubmit = async event => {
     event.preventDefault()
 
-    const { id } = await addDoc(collection(db, "orders"), buyData)
+    if (emailRepeat === buyerData.email) {
+      const { id } = await addDoc(collection(db, "orders"), buyData)
 
-    setOrderId(id)
-    setShowId(true)
+      setOrderId(id)
+      setShowId(true)
 
-    setCartItems([])
-
+      setCartItems([])
+    } else {
+      setShowErrorEmail(true)
+    }
   }
 
   const handleChange = event => {
@@ -43,6 +49,10 @@ const FormBuy = ({ total }) => {
     setBuyData(lastValue => ({...lastValue, 'buyer': buyerData}))
   }
 
+  const handleRepeat = event => {
+    setEmailRepeat(event.target.value)
+  }
+
   return (
     <>
       {
@@ -50,36 +60,52 @@ const FormBuy = ({ total }) => {
         <p>El id de su compra es: {orderId}</p>
         :
         <>
-          <h1>Datos de compra</h1>
+          <h1 className={styled.h1}>Datos de compra</h1>
           <form onSubmit={handleSubmit} className={styled.form}>
-            <label>
+            <label className={styled.label}>
               Nombre
               <input
                 type="text"
                 name='name'
                 value={buyerData.name}
                 onChange={handleChange}
+                className={styled.input}
+                required
               />
             </label>
-            <label>
+            <label className={styled.label}>
               Teléfono
               <input
-                type="text"
+                type="number"
                 name='phone'
                 value={buyerData.phone}
                 onChange={handleChange}
+                className={styled.input}
               />
             </label>
-            <label>
+            <label className={styled.label}>
               Correo
               <input
-                type="text"
+                type="email"
                 name='email'
                 value={buyerData.email}
                 onChange={handleChange}
+                className={styled.input}
+                required
               />
             </label>
-            <button>Completar Compra</button>
+            <label className={styled.label}>
+              Repetir correo
+              <input
+                type="email"
+                name='emailRepeat'
+                onChange={handleRepeat}
+                className={styled.input}
+                required
+              />
+            </label>
+            {showErrorEmail && <p className={styled.error}>El correo debe ser igual</p>}
+            <button className={styled.button}>Completar Compra</button>
           </form>
         </>
       }

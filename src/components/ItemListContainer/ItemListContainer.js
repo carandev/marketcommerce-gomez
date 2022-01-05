@@ -5,8 +5,8 @@ import {collection, getDocs} from "firebase/firestore"
 import db from "../../firebase/firebaseConfig"
 
 const ItemListContainer = () => {
-  let [items, setItems] = useState([])
-  let {categoryId} = useParams()
+  const [items, setItems] = useState([])
+  const {categoryId} = useParams()
 
   const getProducts = async () => {
     const products = await getDocs(collection(db, 'products'))

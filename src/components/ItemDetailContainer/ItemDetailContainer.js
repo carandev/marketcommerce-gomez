@@ -1,23 +1,25 @@
-import React, {useEffect, useState} from 'react';
-import ItemDetail from "../ItemDetail/ItemDetail";
-import {useParams} from "react-router-dom";
-import styled from "./ItemDetailContainer.module.css";
-import {doc, getDoc} from "firebase/firestore";
-import db from "../../firebase/firebaseConfig";
+import React, {useEffect, useState} from 'react'
+import ItemDetail from "../ItemDetail/ItemDetail"
+import NotFound from "../../pages/NotFound"
+import { ImSpinner5 } from 'react-icons/all'
+import {useParams} from "react-router-dom"
+import styled from "./ItemDetailContainer.module.css"
+import {doc, getDoc} from "firebase/firestore"
+import db from "../../firebase/firebaseConfig"
 
 
 const ItemDetailContainer = () => {
 
-  let { itemId } = useParams()
-  let [item, setItem] = useState({})
+  const { itemId } = useParams()
+  const [item, setItem] = useState({})
+  const [loading, setLoading] = useState(true)
 
   const getItem = async () => {
-    const docRef = doc(db, "products", itemId);
-    const docSnap = await getDoc(docRef);
-    /* const q = query(collection(db, "products"), where("id", "==", parseInt(itemId)));
+    const docRef = doc(db, "products", itemId)
+    const docSnap = await getDoc(docRef)
 
-    const querySnapshot = await getDocs(q); */
     setItem(docSnap.data())
+    setLoading(false)
   }
 
   useEffect(() => {
@@ -26,9 +28,14 @@ const ItemDetailContainer = () => {
 
   return (
     <main className={styled.main}>
-      <ItemDetail item={item} id={itemId}/>
+      {loading ? <ImSpinner5 size={40} color="#8df"/> :
+        item === undefined ?
+        <NotFound product/>
+        :
+        <ItemDetail item={item} id={itemId}/>
+      }
     </main>
-  );
-};
+  )
+}
 
-export default ItemDetailContainer;
+export default ItemDetailContainer

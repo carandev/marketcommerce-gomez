@@ -4,9 +4,47 @@
   justify-content: center;
 
   height: 100%;
+  color: #223;
+}
+
+.h1 {
+  color: #223;
 }
 
 .label {
   margin-bottom: 0.5rem;
   font-size: 1.2rem;
+}
+
+.error {
+  color: #822;
+  text-align: center;
+}
+
+.input {
+  margin-left: 1rem;
+  padding: .5rem;
+  max-width: 300px;
+
+  font-size: 1rem;
+
+  border: 1px #223 solid;
+  border-radius: 5px;
+  outline: none;
+  background: transparent;
+  color: #223;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+
+  background: #223;
+  border: #8df 1px solid;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.button:hover {
+  background: #224;
+  cursor: pointer;
 }
