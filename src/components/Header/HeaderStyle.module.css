@@ -18,6 +18,15 @@
   align-items: center;
 }
 
+.logoContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  height: 80px;
+}
+
 .header span {
   color: #fff;
   font-size: 1.5rem;
@@ -27,6 +36,13 @@
   .navBar {
     display: flex;
     flex-direction:column;
+    align-items: center;
+    justify-content: center;
+  }
+  .headerActive {
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
   }
 }

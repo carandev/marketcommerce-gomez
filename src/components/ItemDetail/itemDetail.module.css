@@ -1,5 +1,6 @@
 .item_detail__main {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
 
@@ -49,4 +50,10 @@
   flex-direction: column;
 
   margin-top: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+  .item_detail__main {
+    height: fit-content;
+  }
 }

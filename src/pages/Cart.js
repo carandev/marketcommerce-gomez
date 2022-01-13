@@ -14,7 +14,7 @@ const Cart = () => {
 
   useEffect(() => {
     let totalTemporal = 0
-    cartItems.forEach(([item, id]) => {
+    cartItems.forEach(([item]) => {
       totalTemporal += item.price * item.quantity
     })
 
