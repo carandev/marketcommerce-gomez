@@ -1,15 +1,24 @@
-import React from 'react';
-import {NavLink} from "react-router-dom";
-import styled from "./ItemCategoryStyle.module.css";
+import React from 'react'
+import {NavLink} from "react-router-dom"
+import styled from "./ItemCategoryStyle.module.css"
+import HeaderStyle from "../Header/HeaderStyle.module.css"
 
-const ItemCategory = () => {
+const ItemCategory = ({setShowMenu}) => {
 
   const linkActive = ({ isActive }) => (
     isActive ? `${styled.activeLink} ${styled.link}` : styled.link
   )
 
+  const handleClick = () => {
+    if (window.innerWidth < 800){
+      setShowMenu(lastValue => !lastValue)
+      const header = document.querySelector('header')
+      header.classList.toggle(HeaderStyle.headerActive)
+    }
+  }
+
   return (
-      <nav className={styled.nav}>
+      <nav className={styled.nav} onClick={handleClick}>
           <li>
             <NavLink
               to={'/'}

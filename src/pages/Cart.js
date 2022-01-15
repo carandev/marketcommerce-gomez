@@ -14,7 +14,7 @@ const Cart = () => {
 
   useEffect(() => {
     let totalTemporal = 0
-    cartItems.forEach(([item, id]) => {
+    cartItems.forEach(([item]) => {
       totalTemporal += item.price * item.quantity
     })
 
@@ -50,7 +50,7 @@ const Cart = () => {
       }
       <div className={styled.dataContainer}>
         {
-          finishBuy ?
+          (finishBuy && cartItems.length > 0) ?
             <FormBuy total={total}/>
             :
             <>

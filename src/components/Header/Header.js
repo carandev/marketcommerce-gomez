@@ -17,24 +17,25 @@ const Header = () => {
 
   const handleMenu = () => {
     setShowMenu(lastValue => !lastValue)
+    const header = document.querySelector('header')
+    header.classList.toggle(HeaderStyle.headerActive)
   }
 
   return (
     <header className={HeaderStyle.header}>
-      <Link to={'/'} className={HeaderStyle.linkLogo}>
-        <FaShoppingBag color="#fff" size={30}/>
-        <span>Market Commerce</span>
-      </Link>
-      {
-        showMenu ? null :
-        <HiMenu color="#fff" size={25} onClick={handleMenu}/>
-      }
+      <div className={HeaderStyle.logoContainer}>
+        <Link to={'/'} className={HeaderStyle.linkLogo}>
+          <FaShoppingBag color="#fff" size={30}/>
+          <span>Market Commerce</span>
+        </Link>
+        {window.innerWidth < 800 && <HiMenu color="#fff" size={25} onClick={handleMenu}/>}
+      </div>
       {
         showMenu &&
-        <nav className={HeaderStyle.navBar}>
-          <ItemCategory/>
+        <>
+          <ItemCategory setShowMenu={setShowMenu}/>
           <CartWidget/>
-        </nav>
+        </>
         
       }
     </header>

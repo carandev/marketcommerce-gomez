@@ -9,7 +9,7 @@ const ItemCount = ({item, stock, setShowCount, ...props}) => {
   useEffect(() => {
     const temporalItem = cartItems.find(itemCart => itemCart[1] === props.id)
     props.setNumber(temporalItem ? parseInt(temporalItem[0].quantity) : 1)
-  }, [item])
+  }, [item, cartItems, props])
 
 
   const addNumber = () => {
@@ -33,7 +33,7 @@ const ItemCount = ({item, stock, setShowCount, ...props}) => {
         >
           -
         </button>
-        <p>{props.number}</p>
+        <p className={styled.number}>{props.number}</p>
         <button
           className={styled.button}
           onClick={addNumber}

@@ -15,7 +15,7 @@ const FormAddProduct = () => {
   })
 
   const addProducts = async () => {
-    const docRef = await addDoc(collection(db, "products"), products);
+    await addDoc(collection(db, "products"), products);
   }
 
   const handleSubmit = event => {

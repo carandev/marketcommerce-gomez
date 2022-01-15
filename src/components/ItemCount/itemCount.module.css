@@ -3,6 +3,8 @@
   flex-direction: column;
   align-items: center;
 
+  padding: 1rem;
+
   width: 300px;
 }
 
@@ -11,6 +13,8 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+
+  margin-bottom: 1rem;
 
   font-size: 1rem;
 }
@@ -24,18 +28,6 @@
   background: #8df;
   color: #223;
 }
-
-/* .counter_input input {
-  padding: 2px;
-
-  font-size: 1rem;
-  text-align: center;
-
-  border: none;
-  outline: none;
-  background: #8df;
-  color: #233;
-} */
 
 .button {
   padding: 0.5rem 1rem;
@@ -64,4 +56,10 @@
 .button:hover {
   background: #fff;
   cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  .number {
+    width: 150px;
+  }
 }
