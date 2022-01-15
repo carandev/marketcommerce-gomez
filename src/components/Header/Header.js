@@ -15,7 +15,7 @@ const Header = () => {
     }
   }, [])
 
-  const handleMenu = event => {
+  const handleMenu = () => {
     setShowMenu(lastValue => !lastValue)
     const header = document.querySelector('header')
     header.classList.toggle(HeaderStyle.headerActive)
@@ -33,7 +33,7 @@ const Header = () => {
       {
         showMenu &&
         <>
-          <ItemCategory/>
+          <ItemCategory setShowMenu={setShowMenu}/>
           <CartWidget/>
         </>
         

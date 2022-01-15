@@ -1,6 +1,5 @@
 .main {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 
@@ -35,9 +34,10 @@
   justify-content: space-between;
   align-items: center;
 
+  margin-top: 1rem;
   padding: 2rem;
-  width: 30%;
-  height: 100%;
+  min-width: 30%;
+  min-height: calc(100vh - 80px);
 
   background: #89a;
 }
@@ -55,6 +55,7 @@
   margin: auto;
   color: #223;
   font-size: 3rem;
+  text-align: center;
 }
 
 .emptyCartContainer {
@@ -72,4 +73,13 @@
   align-items: center;
 
   width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+  .main {
+    flex-direction: column;
+  }
+  .dataContainer {
+    width: 100%;
+  }
 }

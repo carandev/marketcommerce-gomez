@@ -50,7 +50,7 @@ const Cart = () => {
       }
       <div className={styled.dataContainer}>
         {
-          finishBuy ?
+          (finishBuy && cartItems.length > 0) ?
             <FormBuy total={total}/>
             :
             <>
