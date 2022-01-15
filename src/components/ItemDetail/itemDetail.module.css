@@ -12,7 +12,7 @@
   color: #fff;
 }
 
-.item_detail__main img {
+.img {
   max-width: 400px;
 }
 
@@ -55,5 +55,12 @@
 @media screen and (max-width: 800px) {
   .item_detail__main {
     height: fit-content;
+    overflow: hidden;
+  }
+  .img {
+    width: 250px;
+  }
+  .description {
+    padding: 1rem;
   }
 }

@@ -33,7 +33,7 @@ const ItemCount = ({item, stock, setShowCount, ...props}) => {
         >
           -
         </button>
-        <p>{props.number}</p>
+        <p className={styled.number}>{props.number}</p>
         <button
           className={styled.button}
           onClick={addNumber}

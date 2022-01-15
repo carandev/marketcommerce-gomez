@@ -10,10 +10,14 @@ const ItemDetail = ({item, id}) => {
 
   return (
     <section className={styled.item_detail__main}>
-      <img src={item.img} alt="Imagen del producto"/>
+      <img 
+        src={item.img}
+        alt="Imagen del producto"
+        className={styled.img}
+      />
       <div className={styled.details}>
-        <h1>{item.name}</h1>
-        <p>{item.description}</p>
+        <h1 className={styled.itemName}>{item.name}</h1>
+        <p className={styled.description}>{item.description}</p>
         <div>
           <h2>{formatNumberToCurrency(item.price)}</h2>
           {showCount ?
