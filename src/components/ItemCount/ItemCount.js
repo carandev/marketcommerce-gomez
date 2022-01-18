@@ -9,7 +9,7 @@ const ItemCount = ({item, stock, setShowCount, ...props}) => {
   useEffect(() => {
     const temporalItem = cartItems.find(itemCart => itemCart[1] === props.id)
     props.setNumber(temporalItem ? parseInt(temporalItem[0].quantity) : 1)
-  }, [item, cartItems, props])
+  }, [item])
 
 
   const addNumber = () => {
