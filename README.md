@@ -1,40 +1,11 @@
-# Ecommerce in React course | CoderHouse
+# Proyecto del curso de React | CoderHouse
 
-## Add Header
+![Video de presentación](./public/sc/market-commerce.mp4)
 
-![Screenshot React](./public/sc/navbar.png)
+Un ecommerce hecho en React con firebase.
 
-## Add shop cart icon and Item list container
+Poco a poco iré añadiendo nuevas cosas y arreglar problemas.
 
-![Screenshot React](./public/sc/icon_list.png)
+*si encontraste un bug háźmelo saber*
 
-## Add Item Count
-
-![Screenshot React](./public/sc/ItemCount.png)
-
-## Add Item and Item list component
-
-![Screenshot React](./public/sc/item_itemlist.png)
-
-## Add Item Detail
-
-![Screenshot React](./public/sc/addButtonItem.png)
-![Screenshot React](./public/sc/itemDetail.png)
-
-## Add Router and categories
-![GIF React](./public/sc/marketcommerce.gif)
-
-## Sync Count
-![Sync Count](./public/sc/sync-count1.png)
-![Sync Count](./public/sc/sync-count2.png)
-
-## Cart Container with Context
-![Cart Container](./public/sc/cartContainer.png)
-
-## Cart View
-![Cart View](./public/sc/cartView.png)
-
-## Order
-![Order View](./public/sc/order2.png)
-![Order View](./public/sc/order1.png)
-![Order View](./public/sc/orderFirebase.png)
+Proyecto en [Link de Market commerce](https://marketcommerce.vercel.app/)
