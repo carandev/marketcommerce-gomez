@@ -1,6 +1,6 @@
 # Proyecto del curso de React | CoderHouse
 
-![Video de presentación](./public/sc/market-commerce.flv)
+![Video de presentación](./public/sc/market-commerce.mp4)
 
 Un ecommerce hecho en React con firebase.
 
